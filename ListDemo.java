@@ -4,8 +4,9 @@
 public class ListDemo
 {
    public static void main(String[] args)
-   {
+
 	  //create LinkedList and add to it
+
       LinkedList staff = new LinkedList();
 
 

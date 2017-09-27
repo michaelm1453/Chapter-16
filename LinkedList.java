@@ -11,6 +11,8 @@ public class LinkedList
 	private Node first;
 
 
+
+
    /**
       Constructs an empty linked list.
    */
@@ -141,6 +143,12 @@ public class LinkedList
       */
       public boolean hasNext()
       {
+		  if(position == null){ //are we at the beginning
+			  return first != null;
+		  }
+		  else { //if current is not knull, is the next node equal to knull
+			  return position.next != null;
+		  }
 
 	  }
 
@@ -150,6 +158,22 @@ public class LinkedList
          and moves the iterator past the inserted element.
          @param element the element to add
       */
+      public void add(Object element){
+		  if(posiion == null){//nothing in the list yet
+			  addFirst(element);
+			  position = first; //first node
+		  }
+		  else{
+			  Node newNode = new Node();
+			  newNode.data = element; //alias/reference
+			  newNode.next = position.next; //what is next
+			  position.next = newNode; //Iterator knows wha the next is now
+			  position = newNode; //current position is the newNode, little conflict if remove() is called
+		  }
+		  isAfterNext = false;
+
+
+	  }
 
 
 
@@ -160,6 +184,22 @@ public class LinkedList
          Removes the last traversed element. This method may
          only be called after a call to the next() method.
       */
+      public void remove()
+      {
+		  if(!isAfterNext) //flag false
+		  	  throw new IllegalStateException();
+		  if(position == first)
+		  {
+			  removeFirst(); //call the premade method
+		  }
+		  else{
+			  previous.next = position.next; //moving the reference
+		  }
+		  //current position in the iterator is previous
+		  position = previous;
+		  isAfterNext = false;
+
+	  }
 
 
 
@@ -171,6 +211,12 @@ public class LinkedList
          Sets the last traversed element to a different value.
          @param element the element to set
       */
+      public void set(Object element){
+		  if(!isAfterNext)
+		  	throw new IllegalStateException();
+
+		  position.data = element;
+	  }
 
 
 
