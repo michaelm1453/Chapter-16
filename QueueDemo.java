@@ -4,11 +4,14 @@ public class QueueDemo
    {
       CircularArrayQueue q = new CircularArrayQueue();
 
-      //add to q
+      q.add("a");
+      q.add("b");
+      q.add("c");
+      q.add("d");
 
       while (!q.empty())
       {
-         //remove from q
+         q.remove();
       }
    }
 }

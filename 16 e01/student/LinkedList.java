@@ -12,7 +12,6 @@ public class LinkedList
 
 
 
-
    /**
       Constructs an empty linked list.
    */
@@ -45,6 +44,7 @@ public class LinkedList
 		   throw new NoSuchElementException();}
 	   Object obj = first.data; //so you can return
 	   first = first.next; //change first reference to the next Node
+
 	   return obj;
    }
 
@@ -62,9 +62,8 @@ public class LinkedList
 	   newNode.data = obj; //makes it an alias
 	   newNode.next = first; //alias to next node
 	   first = newNode;
+
    }
-
-
 
 
 
@@ -75,6 +74,27 @@ public class LinkedList
    public LinkedListIterator listIterator()
    {
 	   return new LinkedListIterator(); //create Iterator class and returns it
+   }
+   public void reverse()
+   {
+	   if(
+
+	/*
+	   while(first.next != null)
+	   {
+		   Object firstdata = new Object();
+		   Object nextdata = new Object();
+	   	   firstdata = first.data;
+	   	   nextdata = first.next.data;
+	   	   first.next.data = firstdata;
+	   	   first.data = nextdata;
+	   	   first.next.data = firstdata;
+
+	   }
+		*/
+
+
+
    }
 
 
@@ -216,6 +236,8 @@ public class LinkedList
 
 		  position.data = element;
 	  }
+
+
 
 
 
