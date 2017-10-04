@@ -75,23 +75,35 @@ public class LinkedList
    {
 	   return new LinkedListIterator(); //create Iterator class and returns it
    }
+
    public void reverse()
    {
-	   if(
+	   if(first == null) return;
+	   Node previous = first;
+	   Node current = first.next;
+	   first.next = null;
 
-	/*
-	   while(first.next != null)
+	   while(current != null)
 	   {
-		   Object firstdata = new Object();
+		   //System.out.println(current.data);
+		   Node temp = new Node();
+		   temp = current.next;
+		   current.next = previous;
+		   previous = current;
+		   current = temp;
+
+		   /*Object firstdata = new Object();
 		   Object nextdata = new Object();
 	   	   firstdata = first.data;
 	   	   nextdata = first.next.data;
 	   	   first.next.data = firstdata;
 	   	   first.data = nextdata;
-	   	   first.next.data = firstdata;
+	   	   first.next.data = firstdata;*/
+
 
 	   }
-		*/
+	   first = previous;
+
 
 
 

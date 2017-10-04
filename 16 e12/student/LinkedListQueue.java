@@ -11,7 +11,8 @@ public class LinkedListQueue
    */
    public LinkedListQueue()
    {
-      . . .
+      head=null;
+      tail=null;
    }
 
    /**
@@ -20,7 +21,7 @@ public class LinkedListQueue
    */
    public boolean empty()
    {
-      . . .
+      return head==null;
    }
 
    /**
@@ -29,7 +30,9 @@ public class LinkedListQueue
    */
    public void add(Object newElement)
    {
-      . . .
+	  Object temp = new Object();
+
+      head.data=newElement;
    }
 
    /**
