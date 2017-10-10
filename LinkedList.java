@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class LinkedList
 {
 	private Node first;
+	private static int size = 0;
 
 
 
@@ -63,6 +64,37 @@ public class LinkedList
 	   newNode.next = first; //alias to next node
 	   first = newNode;
    }
+
+   private static int size(Node start)
+   {
+	   if(start == null)
+	   		return size;
+	   while(start.next!= null){
+	   		start = start.next;
+		    size ++;
+		    size(start);
+	   	}
+
+	   	return size ;
+
+
+   }
+
+   public int size()
+   {
+	   return size(first);
+   }
+   /*public int size() {
+	   return this.first==null ? 0 : sizeHelper(this.first);
+
+
+   }
+   private int sizeHelper(Node a) {
+	   if (a.next!=null) {
+		   return 1+sizeHelper(a.next);
+	   }
+	   return 1;
+   }*/ //KEEP BECAUSE IT'S DOPE
 
 
 

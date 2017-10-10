@@ -9,9 +9,17 @@ public class ListDemo
 
       LinkedList staff = new LinkedList();
       ListIterator iterator = staff.listIterator();
+      staff.addFirst("wheeee");
+      staff.addFirst("Liz is useless");
+      staff.addFirst("Liz is very useless");
+      staff.addFirst("Liz is really useless");
+      staff.addFirst("Liz is extremely useless");
+      staff.addFirst("Liz is more useless than you thought was humanly possible");
+
+      System.out.println(staff.size());
 
 
-      // | in the comments indicates the iterator position
+/*      // | in the comments indicates the iterator position
       staff.addFirst("G");
       staff.addFirst("H");
       staff.addFirst("J");
@@ -44,6 +52,6 @@ public class ListDemo
       {
          System.out.print(iterator.next() + " ");
       }
-      System.out.println();
+      System.out.println();*/
    }
 }

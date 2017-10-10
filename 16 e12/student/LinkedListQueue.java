@@ -33,6 +33,16 @@ public class LinkedListQueue
 	  Object temp = new Object();
 
       head.data=newElement;
+      /*
+      Node temp = newElement;
+      if(head == null){
+		  head.data = newElement;
+	  }
+	  else{
+		  tail.next = null;
+	  }
+	  tail.data = newElement;
+      */
    }
 
    /**
@@ -41,7 +51,13 @@ public class LinkedListQueue
    */
    public Object remove()
    {
-      . . .
+	   /*
+	   if(head ==null)
+	   		return null;
+	   */
+      Object temp = head;
+      head = head.next;
+      return temp;
    }
 
    class Node

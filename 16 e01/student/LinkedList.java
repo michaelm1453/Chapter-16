@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class LinkedList
 {
 	private Node first;
+	private int s = 0;
 
 
 
@@ -44,6 +45,7 @@ public class LinkedList
 		   throw new NoSuchElementException();}
 	   Object obj = first.data; //so you can return
 	   first = first.next; //change first reference to the next Node
+	   s --;
 
 	   return obj;
    }
@@ -62,7 +64,20 @@ public class LinkedList
 	   newNode.data = obj; //makes it an alias
 	   newNode.next = first; //alias to next node
 	   first = newNode;
+	   s ++;
 
+   }
+
+   public int size()
+   {
+	   /*
+	   Node temp = first;
+	   int s = 0;
+	   while(temp.next != null)
+	   		s++;
+	   		temp = temp.next;
+	   */
+	   return s;
    }
 
 
