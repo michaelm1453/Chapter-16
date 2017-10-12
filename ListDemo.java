@@ -9,12 +9,13 @@ public class ListDemo
 
       LinkedList staff = new LinkedList();
       ListIterator iterator = staff.listIterator();
-      staff.addFirst("wheeee");
-      staff.addFirst("Liz is useless");
-      staff.addFirst("Liz is very useless");
-      staff.addFirst("Liz is really useless");
-      staff.addFirst("Liz is extremely useless");
-      staff.addFirst("Liz is more useless than you thought was humanly possible");
+      staff.addFirst("1");
+      staff.addFirst("2");
+      staff.addFirst("3");
+      staff.addFirst("4");
+      staff.addFirst("5");
+      staff.addFirst("6");
+      System.out.println(staff.contains("8)"));
 
       System.out.println(staff.size());
 

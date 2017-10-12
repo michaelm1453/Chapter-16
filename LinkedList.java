@@ -69,13 +69,13 @@ public class LinkedList
    {
 	   if(start == null)
 	   		return size;
-	   while(start.next!= null){
+	   if(start.next!= null){
 	   		start = start.next;
 		    size ++;
 		    size(start);
 	   	}
 
-	   	return size ;
+	   	return size +1;
 
 
    }
@@ -84,6 +84,24 @@ public class LinkedList
    {
 	   return size(first);
    }
+
+   public boolean contains(Object obj)
+   {
+	    Node temp = obj;
+	    if(temp.data.equals(obj))
+	   		return true;
+	   	if(temp.next.data != null)
+	   		return contains(temp.next.data);
+
+
+	   	return false;
+
+   }
+
+
+
+
+
    /*public int size() {
 	   return this.first==null ? 0 : sizeHelper(this.first);
 
@@ -94,7 +112,7 @@ public class LinkedList
 		   return 1+sizeHelper(a.next);
 	   }
 	   return 1;
-   }*/ //KEEP BECAUSE IT'S DOPE
+   }*/ //KEEP BECAUSE IT'S beautiful
 
 
 
