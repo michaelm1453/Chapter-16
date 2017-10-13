@@ -87,7 +87,7 @@ public class LinkedList
 
    public boolean contains(Object obj)
    {
-	    Node temp = obj;
+	    Node temp = first;
 	    if(temp.data.equals(obj))
 	   		return true;
 	   	if(temp.next.data != null)

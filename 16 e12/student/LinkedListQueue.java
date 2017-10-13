@@ -30,10 +30,10 @@ public class LinkedListQueue
    */
    public void add(Object newElement)
    {
-	  Object temp = new Object();
+	  //Object temp = new Object();
 
-      head.data=newElement;
-      /*
+      //head.data=newElement;
+
       Node temp = newElement;
       if(head == null){
 		  head.data = newElement;
@@ -42,7 +42,7 @@ public class LinkedListQueue
 		  tail.next = null;
 	  }
 	  tail.data = newElement;
-      */
+
    }
 
    /**
@@ -51,13 +51,24 @@ public class LinkedListQueue
    */
    public Object remove()
    {
-	   /*
+
 	   if(head ==null)
 	   		return null;
-	   */
+
       Object temp = head;
       head = head.next;
       return temp;
+   }
+
+   public void FirsttoLast()
+   {
+	   add(head.data);
+	   remove();
+   }
+
+   public void LasttoFirst()
+   {
+
    }
 
    class Node
