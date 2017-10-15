@@ -1,9 +1,14 @@
+package MazeApp;
+
 public class Square
 {
 	public static final int SPACE = 0;
 	public static final int WALL = 1;
 	public static final int START = 2;
 	public static final int FINISH = 3;
+	public static final int ON_WORK_LIST = 4;
+	public static final int EXPLORED = 5;
+	public static final int ON_PATH = 6;
 
 	private int row = 0;
 	private int col = 0;
@@ -31,7 +36,7 @@ public class Square
 	public int getRow()
 	{return row;}
 	public int getColumn()
-	{return column();}
+	{return col;}
 	public int getType()
 	{return type;}
 
@@ -39,12 +44,23 @@ public class Square
 	{
 		switch(type)
 		{
-			case 0: return "_";
-
+			case 0:
+			switch(state)
+			{
+			    case ON_WORK_LIST: return "o";
+			    case EXPLORED: return "_";
+			    case ON_PATH: return "x";
+			}
 			case 1: return "#";
-			case
+			case 2: return "S";
+			case 3: return "E";
+			//case 4: return "o";
+			//case 5: return ".";
+			//case 6: return "x";
+			default: return "_";
 
 		}
+		
 
 	}
 
