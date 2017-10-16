@@ -1,4 +1,4 @@
-package MazeApp;
+//package MazeApp;
 
 public class Square
 {
@@ -44,23 +44,17 @@ public class Square
 	{
 		switch(type)
 		{
-			case 0:
-			switch(state)
-			{
-			    case ON_WORK_LIST: return "o";
-			    case EXPLORED: return "_";
-			    case ON_PATH: return "x";
-			}
+			case 0: return "_";
 			case 1: return "#";
 			case 2: return "S";
 			case 3: return "E";
-			//case 4: return "o";
-			//case 5: return ".";
-			//case 6: return "x";
+			case 4: return "o";
+			case 5: return ".";
+			case 6: return "x";
 			default: return "_";
 
 		}
-		
+
 
 	}
 

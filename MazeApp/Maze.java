@@ -1,4 +1,4 @@
-package MazeApp;
+//package MazeApp;
 import java.io.*;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
@@ -14,32 +14,30 @@ public class Maze
         JFileChooser picker = new JFileChooser();
         if(picker.showOpenDialog(null) == JFileChooser.APPROVE_OPTION )
         {
+			int count = 0;
             File file = picker.getSelectedFile();
             backup = picker.getSelectedFile();
             Scanner f = new Scanner(file);
             row = Integer.parseInt(f.next());
             col = Integer.parseInt(f.next());
+            maze = new Square[row][col];
             while(f.hasNext())
             {
                 for(int i = 0; i < row; i ++){
                     for(int j = 0; j < col; j ++){
                         String s = f.next();
-                        switch(s){
-                            case "_": type = 0; break;
-                            case "x": type = 1; break;
-                            case "S": type = 2; break;
-                            case "E": type = 3; break;
-                            default: break;
-                        }
-                        maze[i][j] = new Square(i, j, type); 
+                        count ++;
+                        type = Integer.parseInt(s);
+                        maze[i][j] = new Square(i, j, type);
                     }
                 }
             }
-                     
+            System.out.println(count);
+
             return true;
         }
         return false;
-        
+
     }
 
     public String toString()
@@ -48,21 +46,18 @@ public class Maze
         for(int i = 0; i < row; i ++){
             for(int j = 0; j <col; j++)
             {
-                if(j == col - 1)
-                    myString += "/n" +maze[i][j].toString();
-                else
-                    myString += maze[i][j].toString();
-                
+				myString += maze[i][j].toString();
             }
+            myString += "\n";
         }
         return myString;
     }
-    
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Maze m = new Maze();
         m.loadMaze();
         System.out.println(m.toString());
     }
-    
+
 }
