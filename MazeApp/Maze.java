@@ -1,4 +1,4 @@
-package MazeApp;
+//package MazeApp;
 
 //package MazeApp;
 import java.io.*;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Maze
 {
     private File file1 = null;
-    private Square[][] maze; private Square start; private Square end;
+    public static Square[][] maze; private Square start; private Square end;
     private Square[][] backup = null;
     private int row = 0; private int col = 0; private int type = 0;
     public boolean loadMaze() throws FileNotFoundException
@@ -30,7 +30,7 @@ public class Maze
                         String s = f.next();
                         type = Integer.parseInt(s);
                         maze[i][j] = new Square(i, j, type);
-                        if(type == 2)   
+                        if(type == 2)
                             start = maze[i][j];
                         if(type == 3)
                             end = maze[i][j];
@@ -38,7 +38,7 @@ public class Maze
                 }
             }
             backup = maze;
-            
+
 
             return true;
         }
@@ -58,7 +58,7 @@ public class Maze
         }
         return myString;
     }
-    
+
     public Square getStart()
     {
         return start;
@@ -67,24 +67,26 @@ public class Maze
     {
         return end;
     }
-    
+
     public void reset()
     {
-        maze = backup;
-        
+		for(int x = 0; x < row; x ++)
+			for(int y = 0; y < col; y ++)
+				maze[x][y] = backup[x][y];
+
     }
-    
+
     public ArrayList<Square> getNeighbors(Square sq)
     {
         ArrayList<Square> neighbors = new ArrayList<Square>();
-        if(maze[sq.getRow()-1][sq.getCol()] != null)
-            neighbors.add(maze[sq.getRow()-1][sq.getCol()]);
-        if(maze[sq.getRow()][sq.getCol()+1] != null)
-            neighbors.add(maze[sq.getRow()][sq.getCol()+1]);
-        if(maze[sq.getRow()+1][sq.getCol()] != null)
-            neighbors.add(maze[sq.getRow()+1][sq.getCol()]);
-        if(maze[sq.getRow()][sq.getCol()-1] != null)
-            neighbors.add(maze[sq.getRow()][sq.getCol()-1]);
+        if(sq.getRow()-1 >= 0)//checks if the direction above it is valid
+            neighbors.add(maze[sq.getRow()-1][sq.getColumn()]);
+        if(sq.getColumn()+1 < col)
+            neighbors.add(maze[sq.getRow()][sq.getColumn()+1]);
+        if(sq.getRow()+1 < row)
+            neighbors.add(maze[sq.getRow()+1][sq.getColumn()]);
+        if(sq.getColumn() - 1 >= 0)
+            neighbors.add(maze[sq.getRow()][sq.getColumn()-1]);
         return neighbors;
     }
 
@@ -92,7 +94,9 @@ public class Maze
     {
         Maze m = new Maze();
         m.loadMaze();
-        System.out.println(m.toString());
+        //System.out.println(m.toString());
+        System.out.println(m.getNeighbors(maze[0][0]));
+        System.out.println(m.getStart().getRow() + ", " + m.getStart().getColumn() + " is a " + m.getStart().getType());
     }
 
 }
