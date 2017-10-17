@@ -1,22 +1,24 @@
+package MazeApp;
+
 //package MazeApp;
 import java.io.*;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
+import java.util.ArrayList;
 
 public class Maze
 {
     private File file1 = null;
-    private Square[][] maze;
-    private File backup = null;
+    private Square[][] maze; private Square start; private Square end;
+    private Square[][] backup = null;
     private int row = 0; private int col = 0; private int type = 0;
     public boolean loadMaze() throws FileNotFoundException
     {
         JFileChooser picker = new JFileChooser();
         if(picker.showOpenDialog(null) == JFileChooser.APPROVE_OPTION )
         {
-			int count = 0;
+            int count = 0;
             File file = picker.getSelectedFile();
-            backup = picker.getSelectedFile();
             Scanner f = new Scanner(file);
             row = Integer.parseInt(f.next());
             col = Integer.parseInt(f.next());
@@ -26,13 +28,17 @@ public class Maze
                 for(int i = 0; i < row; i ++){
                     for(int j = 0; j < col; j ++){
                         String s = f.next();
-                        count ++;
                         type = Integer.parseInt(s);
                         maze[i][j] = new Square(i, j, type);
+                        if(type == 2)   
+                            start = maze[i][j];
+                        if(type == 3)
+                            end = maze[i][j];
                     }
                 }
             }
-            System.out.println(count);
+            backup = maze;
+            
 
             return true;
         }
@@ -46,11 +52,40 @@ public class Maze
         for(int i = 0; i < row; i ++){
             for(int j = 0; j <col; j++)
             {
-				myString += maze[i][j].toString();
+                myString += maze[i][j].toString();
             }
             myString += "\n";
         }
         return myString;
+    }
+    
+    public Square getStart()
+    {
+        return start;
+    }
+    public Square getFinish()
+    {
+        return end;
+    }
+    
+    public void reset()
+    {
+        maze = backup;
+        
+    }
+    
+    public ArrayList<Square> getNeighbors(Square sq)
+    {
+        ArrayList<Square> neighbors = new ArrayList<Square>();
+        if(maze[sq.getRow()-1][sq.getCol()] != null)
+            neighbors.add(maze[sq.getRow()-1][sq.getCol()]);
+        if(maze[sq.getRow()][sq.getCol()+1] != null)
+            neighbors.add(maze[sq.getRow()][sq.getCol()+1]);
+        if(maze[sq.getRow()+1][sq.getCol()] != null)
+            neighbors.add(maze[sq.getRow()+1][sq.getCol()]);
+        if(maze[sq.getRow()][sq.getCol()-1] != null)
+            neighbors.add(maze[sq.getRow()][sq.getCol()-1]);
+        return neighbors;
     }
 
     public static void main(String[] args) throws FileNotFoundException
