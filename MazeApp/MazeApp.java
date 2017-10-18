@@ -1,3 +1,5 @@
+package MazeApp;
+
 /**
  * The CSCI 151 Amazing Maze Solver GUI application.
  * 

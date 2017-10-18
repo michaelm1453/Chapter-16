@@ -1,3 +1,5 @@
+package MazeApp;
+
 //package MazeApp;
 
 //package MazeApp;

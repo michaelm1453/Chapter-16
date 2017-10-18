@@ -1,3 +1,5 @@
+package MazeApp;
+
 import java.util.NoSuchElementException;
 
 /**
