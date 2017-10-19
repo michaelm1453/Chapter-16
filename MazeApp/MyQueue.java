@@ -1,46 +1,46 @@
 package MazeApp;
 
 import java.util.ArrayList;
-import java.NoSuchElementException
+import java.util.NoSuchElementException;
 
 public class MyQueue<T> implements QueueADT<T>
 {
-	ArrayList<T> myQueue = new ArrayList<>();
-	int x = 0;
-	public void enqueue(T item){//adds to the end ArrayList automatically adds to the end
-		myQueue.add(item);
-		x++;
+    ArrayList<T> myQueue = new ArrayList<>();
+    int x = 0;
+    public void enqueue(T item){//adds to the end ArrayList automatically adds to the end
+        myQueue.add(item);
+        x++;
 
-	}
+    }
 
-	public T dequeue() throws NoSuchElementException
-	{
-		x--;
-		return elements.remove(0);
-	}
+    public T dequeue() throws NoSuchElementException
+    {
+        x--;
+        return this.myQueue.remove(0);
+    }
 
-	public T front() throws NoSuchElementException
-	{
-		return elements.get(0);
-	}
+    public T front() throws NoSuchElementException
+    {
+        return this.myQueue.get(0);
+    }
 
-	public int size()
-	{
-		return x;
-	}
+    public int size()
+    {
+        return x;
+    }
 
-	public boolean empty()
-	{
-		if(x != 0)
-			return true;
-		return false;
-	}
+    public boolean isEmpty()
+    {
+        if(x != 0)
+            return true;
+        return false;
+    }
 
-	public void clear()
-	{
-		for(int z = 0; z < x; z++)
-			this.myQueue[z] = null;
-	}
+    public void clear()
+    {
+        this.myQueue = new ArrayList<T>();
+
+    }
 
 
 

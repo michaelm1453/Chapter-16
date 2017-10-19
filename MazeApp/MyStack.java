@@ -49,9 +49,10 @@ public class MyStack<T> implements StackADT<T>
      */
     public T pop() throws NoSuchElementException
     {
-        Size --;
+        
         if(this.isEmpty())
             throw new NoSuchElementException();
+        Size --;
         return this.stack.remove(0);
 
 
@@ -64,6 +65,8 @@ public class MyStack<T> implements StackADT<T>
      */
     public T top() throws NoSuchElementException
     {
+        if(this.stack.isEmpty())
+            throw new NoSuchElementException();
         return this.stack.get(0);
 
     }
@@ -88,7 +91,7 @@ public class MyStack<T> implements StackADT<T>
      */
      public boolean isEmpty()
      {
-         if(Size == 0)
+         if(this.size() == 0)
             return true;
 
          return false;
@@ -103,13 +106,13 @@ public class MyStack<T> implements StackADT<T>
      */
     public void clear()
     {
-        this.stack.clear();
+        this.stack = new ArrayList<T>();
     }
 
     public String toString()
     {
         String str = "[";
-        for(int x = 0; x < Size; x ++)
+        for(int x = 0; x < this.size(); x ++)
             str += this.stack.get(x) + ",";
 
         str += "]";
