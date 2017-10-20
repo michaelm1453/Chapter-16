@@ -73,11 +73,10 @@ public abstract class MazeSolver
      */
     public String getPath()
     {
-         String path = "";
-        if(this.isSolved() == false)
-            return "The maze cannot be solved, sorry";
-        for(Square s: test)
-            path += "[" + s.getRow() + "," + s.getColumn() + "]";
+        String path = "";
+
+
+
         return path;
     }
 

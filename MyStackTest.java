@@ -1,4 +1,4 @@
-package MazeApp;
+ 
 
 
 import static org.junit.Assert.*;

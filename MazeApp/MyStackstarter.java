@@ -1,5 +1,4 @@
- 
-
+package MazeApp;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -12,7 +11,6 @@ import java.util.NoSuchElementException;
 public class MyStack<T> implements StackADT<T>
 {
     private ArrayList<T> stack;
-    int Size = 0;
 
 
     /**
@@ -30,13 +28,6 @@ public class MyStack<T> implements StackADT<T>
      * @param item the data item to add (of type T)
      */
 
-     public void push(T element)
-     {
-         Size++;
-         this.stack.add(0, element);
-         
-     }
-
 
 
 
@@ -49,12 +40,6 @@ public class MyStack<T> implements StackADT<T>
      */
     public T pop() throws NoSuchElementException
     {
-        
-        if(this.isEmpty())
-            throw new NoSuchElementException();
-        Size --;
-        return this.stack.remove(0);
-
 
     }
 
@@ -65,9 +50,6 @@ public class MyStack<T> implements StackADT<T>
      */
     public T top() throws NoSuchElementException
     {
-        if(this.stack.isEmpty())
-            throw new NoSuchElementException();
-        return this.stack.get(0);
 
     }
 
@@ -75,11 +57,6 @@ public class MyStack<T> implements StackADT<T>
      * Find how many items are in the stack
      * @return the number of items in the stack
      */
-
-     public int size()
-     {
-         return Size;
-     }
 
 
 
@@ -89,13 +66,6 @@ public class MyStack<T> implements StackADT<T>
      * Determine if the stack is empty
      * @return true if the size is 0, false otherwise
      */
-     public boolean isEmpty()
-     {
-         if(this.size() == 0)
-            return true;
-
-         return false;
-     }
 
 
 
@@ -106,14 +76,12 @@ public class MyStack<T> implements StackADT<T>
      */
     public void clear()
     {
-        this.stack = new ArrayList<T>();
+        this.stack.clear();
     }
 
     public String toString()
     {
         String str = "[";
-        for(int x = 0; x < this.size(); x ++)
-            str += this.stack.get(x) + ",";
 
         str += "]";
 

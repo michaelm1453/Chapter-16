@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 public class MyQueue<T> implements QueueADT<T>
 {
-    ArrayList<T> myQueue = new ArrayList<>();
+    LinkedList<T> ll = new LinkedList<>();
     int x = 0;
     public void enqueue(T item){//adds to the end ArrayList automatically adds to the end
         myQueue.add(item);
@@ -40,6 +40,12 @@ public class MyQueue<T> implements QueueADT<T>
     {
         this.myQueue = new ArrayList<T>();
 
+    }
+    
+    class Node
+    {
+        private Object data;
+        private Node newNode;
     }
 
 

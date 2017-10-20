@@ -1,4 +1,4 @@
-package MazeApp;
+ 
 
 public class Square
 {

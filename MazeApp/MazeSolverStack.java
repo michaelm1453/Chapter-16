@@ -1,4 +1,4 @@
-package MazeApp;
+package MazeApp; 
 
 public class MazeSolverStack extends MazeSolver
 {
