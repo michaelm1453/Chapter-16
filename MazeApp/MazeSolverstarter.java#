@@ -24,7 +24,7 @@ public abstract class MazeSolver
         this.maze = maze;
         this.foundExit = false;
         this.makeEmpty();
-        this.add(this.maze.getStart() );
+        this.add( this.maze.getStart() );
     }
 
     /**
@@ -60,13 +60,6 @@ public abstract class MazeSolver
      *
      *  @return if the maze is solved
      */
-    public boolean isSolved()
-    {
-        if(this.next().equals(maze.getFinish()))
-            return true;
-        return false;
-    }
-    
 
 
 
@@ -80,14 +73,10 @@ public abstract class MazeSolver
      */
     public String getPath()
     {
-         String path = "";
-        if(this.isSolved() == false)
-            return "The maze cannot be solved, sorry";
-        for(int i = 0; i < maze.getFinish().getRow(); i ++){
-            for(int j = 0; j < maze.getFinish().getColumn(); i++){
-                path += "[" + i + "," + j + "]";
-            }
-        }
+        String path = "";
+
+
+
         return path;
     }
 
@@ -97,28 +86,12 @@ public abstract class MazeSolver
      *
      *  @return the Square that was just explored (and null if no such Square exists)
      */
-    /**
-     * Is the worklist empty? If so, the exit is unreachable; terminate the algorithm.
-     * Otherwise, grab the "next" location to explore from the worklist.
-     * Does the location correspond to the exit square? If so, the finish was reachable; terminate the algorithm and output the path you found.
-     * Otherwise, it is a reachable non-finish location that we haven't explored yet. So, explore it as follows:
-     * compute all the adjacent up, right, down, left locations that are inside the maze and aren't walls, and
-     * add them to the worklist for later exploration provided they have not previously been added to the worklist.
-     * Also, record the fact that you've explored this location so you won't ever have to explore it again. 
-     * Note that a location is considered "explored" once its neighbors have been put on the worklist. 
-     * The neighbors themselves are not "explored" until they are removed from the worklist and checked for their neighbors
-     */
     public Square step()
     {
         // check if the maze cannot be solved
         if( this.isEmpty() )
+        {
             return null;
-            //remember to make sure that getNeighbors ONLY adds non walls.
-        for(Square square : this.top().getNeighbors())
-        {//test to see if the square is the finish point. if it is, return the square
-            //also test to see if the square is already in the worklist?
-            //make sure you change the type of the square to either "on worklist" or "explored"
-            this.add(square);
         }
 
 
@@ -129,10 +102,5 @@ public abstract class MazeSolver
      * Repeatedly calls step() until you get to the exit square or the worklist is empty.
      *
      */
-    public void solve()
-    {
-        while(!this.isEmpty())
-            this.step();
-    }
 
 }
