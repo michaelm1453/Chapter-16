@@ -2,9 +2,18 @@
 dependency1.from=MazeApp
 dependency1.to=Maze
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 dependency10.from=MazeSolverStack
 dependency10.to=Square
 dependency10.type=UsesDependency
+=======
+dependency10.from=MazeApp
+dependency10.to=MazeSolverStack
+dependency10.type=UsesDependency
+dependency11.from=MazeSolverStack
+dependency11.to=MyStack
+dependency11.type=UsesDependency
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 dependency2.from=MyStackTest
 dependency2.to=MyStack
 dependency2.type=UsesDependency
@@ -20,6 +29,7 @@ dependency5.type=UsesDependency
 dependency6.from=MyQueue
 dependency6.to=Square
 dependency6.type=UsesDependency
+<<<<<<< HEAD
 dependency7.from=Maze
 dependency7.to=Square
 dependency7.type=UsesDependency
@@ -36,6 +46,24 @@ package.editor.width=1248
 package.editor.x=-8
 package.editor.y=-8
 package.numDependencies=10
+=======
+dependency7.from=MazeSolverStack
+dependency7.to=Maze
+dependency7.type=UsesDependency
+dependency8.from=MazeSolverStack
+dependency8.to=Square
+dependency8.type=UsesDependency
+dependency9.from=MazeApp
+dependency9.to=MazeSolver
+dependency9.type=UsesDependency
+objectbench.height=102
+objectbench.width=1260
+package.editor.height=795
+package.editor.width=1139
+package.editor.x=-2
+package.editor.y=34
+package.numDependencies=11
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 package.numTargets=11
 package.showExtends=true
 package.showUses=true
@@ -45,12 +73,21 @@ target1.showInterface=false
 target1.type=ClassTarget
 target1.typeParameters=<T>
 target1.width=130
+<<<<<<< HEAD
 target1.x=470
 target1.y=50
 target10.editor.height=728
 target10.editor.width=683
 target10.editor.x=0
 target10.editor.y=0
+=======
+target1.x=370
+target1.y=140
+target10.editor.height=728
+target10.editor.width=683
+target10.editor.x=0
+target10.editor.y=36
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target10.height=50
 target10.name=MyStack
 target10.naviview.expanded=true
@@ -58,8 +95,13 @@ target10.showInterface=false
 target10.type=ClassTarget
 target10.typeParameters=<T>
 target10.width=90
+<<<<<<< HEAD
 target10.x=300
 target10.y=260
+=======
+target10.x=270
+target10.y=130
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target11.editor.height=728
 target11.editor.width=683
 target11.editor.x=683
@@ -71,7 +113,11 @@ target11.showInterface=false
 target11.type=UnitTestTargetJunit4
 target11.typeParameters=
 target11.width=100
+<<<<<<< HEAD
 target11.x=50
+=======
+target11.x=10
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target11.y=150
 target2.editor.height=700
 target2.editor.width=900
@@ -83,6 +129,7 @@ target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=<T>
+<<<<<<< HEAD
 target2.width=110
 target2.x=540
 target2.y=110
@@ -93,24 +140,49 @@ target3.editor.y=0
 target3.height=50
 target3.name=MazeSolver
 target3.naviview.expanded=true
+=======
+target2.width=100
+target2.x=420
+target2.y=80
+target3.editor.height=990
+target3.editor.width=1282
+target3.editor.x=-2
+target3.editor.y=34
+target3.height=50
+target3.name=MazeSolver
+target3.naviview.expanded=false
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target3.showInterface=false
 target3.type=AbstractTarget
 target3.typeParameters=
 target3.width=90
 target3.x=360
+<<<<<<< HEAD
 target3.y=60
 target4.editor.height=728
 target4.editor.width=683
 target4.editor.x=0
 target4.editor.y=0
+=======
+target3.y=10
+target4.editor.height=700
+target4.editor.width=900
+target4.editor.x=323
+target4.editor.y=149
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target4.height=50
 target4.name=MazeSolverStack
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=120
+<<<<<<< HEAD
 target4.x=360
 target4.y=150
+=======
+target4.x=40
+target4.y=310
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target5.editor.height=700
 target5.editor.width=900
 target5.editor.x=32
@@ -122,21 +194,35 @@ target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=80
+<<<<<<< HEAD
 target5.x=1160
 target5.y=0
+=======
+target5.x=180
+target5.y=130
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target6.editor.height=700
 target6.editor.width=900
-target6.editor.x=32
-target6.editor.y=12
+target6.editor.x=38
+target6.editor.y=54
 target6.height=50
 target6.name=MazeApp
+<<<<<<< HEAD
 target6.naviview.expanded=true
+=======
+target6.naviview.expanded=false
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
 target6.width=80
+<<<<<<< HEAD
 target6.x=180
 target6.y=200
+=======
+target6.x=90
+target6.y=90
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target7.editor.height=700
 target7.editor.width=900
 target7.editor.x=0
@@ -147,8 +233,13 @@ target7.showInterface=false
 target7.type=InterfaceTarget
 target7.typeParameters=<T>
 target7.width=120
+<<<<<<< HEAD
 target7.x=730
 target7.y=80
+=======
+target7.x=420
+target7.y=300
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target8.editor.height=700
 target8.editor.width=900
 target8.editor.x=0
@@ -159,12 +250,21 @@ target8.showInterface=false
 target8.type=InterfaceTarget
 target8.typeParameters=<T>
 target8.width=110
+<<<<<<< HEAD
 target8.x=180
 target8.y=20
 target9.editor.height=700
 target9.editor.width=900
 target9.editor.x=0
 target9.editor.y=0
+=======
+target8.x=240
+target8.y=10
+target9.editor.height=700
+target9.editor.width=900
+target9.editor.x=0
+target9.editor.y=36
+>>>>>>> 0c37d7ea1f404efbbdf007338149b8c325e72616
 target9.height=50
 target9.name=Maze
 target9.naviview.expanded=true

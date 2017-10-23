@@ -1,6 +1,6 @@
  
 
-//package MazeApp;
+ 
 
 //package MazeApp;
 import java.io.*;
