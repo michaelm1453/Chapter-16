@@ -2,11 +2,11 @@ package MazeApp;
 
 public class MazeSolverStack extends MazeSolver
 {
-    Maze m = new Maze();
+    static Maze m = new Maze(); 
     MyStack<Square> stack = new MyStack<>();
-    public MazeSolverStack()
+    public MazeSolverStack(Maze maze)
     {
-        super(m);
+        super(maze);
     }
     public void makeEmpty()
     {
@@ -30,8 +30,8 @@ public class MazeSolverStack extends MazeSolver
     
     public static void main(String[] args)
     {
-        MazeSolverStack test = new MazeSolverStack();
+        MazeSolverStack test = new MazeSolverStack(m);
         test.solve();
-        System.out.println(test.path());
+        System.out.println(test.getPath());
     }
 }

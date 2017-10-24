@@ -106,7 +106,10 @@ public class MyStack<T> implements StackADT<T>
      */
     public void clear()
     {
-        this.stack = new ArrayList<T>();
+        while (!isEmpty()) {
+            stack.pop();
+        }
+        //this.stack = new ArrayList<T>();
     }
 
     public String toString()

@@ -79,7 +79,7 @@ public abstract class MazeSolver
      *  @return if the solution path if such a path exists
      */
     public String getPath()
-    {
+    {//check to see if the type is equal to 6 (on_path)
          String path = "";
         if(this.isSolved() == false)
             return "The maze cannot be solved, sorry";
@@ -112,15 +112,22 @@ public abstract class MazeSolver
     {
         // check if the maze cannot be solved
         if( this.isEmpty() )
-            return null;
+            return null; //maybe just return null the whole time?
             //remember to make sure that getNeighbors ONLY adds non walls.
         for(Square square : maze.getNeighbors(this.next()))
         {
             if(square.getType() == 3)
-                return square;
+                return null;
+            if(maze.getNeighbors(square).size() > 0){
+                this.add(square);
+                square.setType(4);
+            }
+            else
+                square.setType(5);
+                
             //also test to see if the square is already in the worklist?
             //make sure you change the type of the square to either "on worklist" or "explored" or "on path"
-            this.add(square);
+            
         }
         return null;
 

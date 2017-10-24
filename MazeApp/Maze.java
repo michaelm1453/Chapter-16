@@ -72,23 +72,27 @@ public class Maze
 
     public void reset()
     {
-		for(int x = 0; x < row; x ++)
-			for(int y = 0; y < col; y ++)
-				maze[x][y] = backup[x][y];
+        for(int x = 0; x < row; x ++)
+            for(int y = 0; y < col; y ++)
+                maze[x][y] = backup[x][y];
 
     }
 
     public ArrayList<Square> getNeighbors(Square sq)
     {
         ArrayList<Square> neighbors = new ArrayList<Square>();
-        if(sq.getRow()-1 >= 0 && sq.getType() != 1)//checks if the direction above it is valid
-            neighbors.add(maze[sq.getRow()-1][sq.getColumn()]);
-        if(sq.getColumn()+1 < col && sq.getType() != 1)
-            neighbors.add(maze[sq.getRow()][sq.getColumn()+1]);
-        if(sq.getRow()+1 < row && sq.getType() != 1)
-            neighbors.add(maze[sq.getRow()+1][sq.getColumn()]);
-        if(sq.getColumn() - 1 >= 0 && sq.getType() != 1)
-            neighbors.add(maze[sq.getRow()][sq.getColumn()-1]);
+        if(sq.getRow()-1 >= 0 && sq.getType() == 0)//checks if the direction above it is valid
+            if(maze[sq.getRow()-1][sq.getColumn()].getType() == 0)
+                neighbors.add(maze[sq.getRow()-1][sq.getColumn()]);
+        if(sq.getColumn()+1 < col && sq.getType() == 0)
+            if(maze[sq.getRow()][sq.getColumn()+1].getType() == 0)
+                neighbors.add(maze[sq.getRow()][sq.getColumn()+1]);
+        if(sq.getRow()+1 < row && sq.getType() == 0)
+            if(maze[sq.getRow()+1][sq.getColumn()].getType() == 0)
+                neighbors.add(maze[sq.getRow()+1][sq.getColumn()]);
+        if(sq.getColumn() - 1 >= 0 && sq.getType() == 0)
+            if(maze[sq.getRow()][sq.getColumn()-1].getType() == 0)
+                neighbors.add(maze[sq.getRow()][sq.getColumn()-1]);
         return neighbors;
     }
 
