@@ -5,41 +5,52 @@ import java.util.NoSuchElementException;
 
 public class MyQueue<T> implements QueueADT<T>
 {
-    LinkedList<T> ll = new LinkedList<>();
-    int x = 0;
+    public ArrayList<T> myQueue;
+    public MyQueue()
+    {
+        myQueue = new ArrayList<T>();     
+    }
     public void enqueue(T item){//adds to the end ArrayList automatically adds to the end
         myQueue.add(item);
-        x++;
 
     }
 
     public T dequeue() throws NoSuchElementException
     {
-        x--;
-        return this.myQueue.remove(0);
+        
+        if(myQueue.size() != 0)
+        {
+           return this.myQueue.remove(0);
+        }
+        else 
+            throw new NoSuchElementException();
+        
     }
 
     public T front() throws NoSuchElementException
     {
-        return this.myQueue.get(0);
+        if(myQueue.size() != 0)
+           return this.myQueue.get(0);
+        else 
+            throw new NoSuchElementException();
+            
     }
 
     public int size()
     {
-        return x;
+        return myQueue.size();
     }
 
     public boolean isEmpty()
     {
-        if(x != 0)
+        if(size() == 0)
             return true;
         return false;
     }
 
     public void clear()
     {
-        this.myQueue = new ArrayList<T>();
-
+        myQueue.clear();
     }
     
     class Node

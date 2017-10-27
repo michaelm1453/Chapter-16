@@ -13,17 +13,9 @@ public class Square
 	private int row = 0;
 	private int col = 0;
 	private int type = 0;
-	private State state;
+	private Square previous;
 
 	//might want to use a switch for the toString()
-	public enum State
-	{
-		UNEXPLORED, // '_'
-		ON_WORK_LIST, // 'o'
-		EXPLORED, // '.'
-		ON_PATH // 'x'
-
-	};
 
 	public Square(int row, int col, int type)
 	{
@@ -41,6 +33,10 @@ public class Square
 	{return type;}
 	public void setType(int t)
 	{type = t;}
+	public void goBack(Square sq)
+	{previous = sq;}
+	public Square getPrevious()
+	{return previous;}
 
 	public String toString()
 	{
