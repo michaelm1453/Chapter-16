@@ -12,7 +12,6 @@ import java.util.NoSuchElementException;
 public class MyStack<T> implements StackADT<T>
 {
     private ArrayList<T> stack;
-    int Size = 0;
 
 
     /**
@@ -32,9 +31,7 @@ public class MyStack<T> implements StackADT<T>
 
      public void push(T element)
      {
-         Size++;
          this.stack.add(0, element);
-         
      }
 
 
@@ -49,13 +46,9 @@ public class MyStack<T> implements StackADT<T>
      */
     public T pop() throws NoSuchElementException
     {
-        
         if(this.isEmpty())
             throw new NoSuchElementException();
-        Size --;
         return this.stack.remove(0);
-
-
     }
 
     /**
@@ -78,7 +71,7 @@ public class MyStack<T> implements StackADT<T>
 
      public int size()
      {
-         return Size;
+         return stack.size();
      }
 
 
@@ -106,10 +99,7 @@ public class MyStack<T> implements StackADT<T>
      */
     public void clear()
     {
-        while (!isEmpty()) {
-            stack.pop();
-        }
-        //this.stack = new ArrayList<T>();
+        stack.clear();
     }
 
     public String toString()

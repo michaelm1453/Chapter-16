@@ -1,14 +1,16 @@
 #BlueJ class context
-comment0.params=item
-comment0.target=void\ enqueue(java.lang.Object)
-comment1.params=
-comment1.target=java.lang.Object\ dequeue()
+comment0.params=
+comment0.target=MyQueue()
+comment1.params=item
+comment1.target=void\ enqueue(java.lang.Object)
 comment2.params=
-comment2.target=java.lang.Object\ front()
+comment2.target=java.lang.Object\ dequeue()
 comment3.params=
-comment3.target=int\ size()
+comment3.target=java.lang.Object\ front()
 comment4.params=
-comment4.target=boolean\ isEmpty()
+comment4.target=int\ size()
 comment5.params=
-comment5.target=void\ clear()
-numComments=6
+comment5.target=boolean\ isEmpty()
+comment6.params=
+comment6.target=void\ clear()
+numComments=7

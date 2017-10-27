@@ -14,14 +14,10 @@ public class Maze
     public static Square[][] maze; private Square start; private Square end;
     private Square[][] backup = null;
     private int row = 0; private int col = 0; private int type = 0;
-    public boolean loadMaze() throws FileNotFoundException
+    public boolean loadMaze(String fileName)
     {
-        JFileChooser picker = new JFileChooser();
-        if(picker.showOpenDialog(null) == JFileChooser.APPROVE_OPTION )
-        {
-            int count = 0;
-            File file = picker.getSelectedFile();
-            Scanner f = new Scanner(file);
+        try{
+            Scanner f = new Scanner(new File(fileName));
             row = Integer.parseInt(f.next());
             col = Integer.parseInt(f.next());
             maze = new Square[row][col];
@@ -41,10 +37,11 @@ public class Maze
             }
             backup = maze;
 
-
             return true;
         }
-        return false;
+        catch (FileNotFoundException e){
+            return false;
+        }   
 
     }
 
@@ -81,28 +78,25 @@ public class Maze
     public ArrayList<Square> getNeighbors(Square sq)
     {
         ArrayList<Square> neighbors = new ArrayList<Square>();
-        if(sq.getRow()-1 >= 0 && sq.getType() == 0)//checks if the direction above it is valid
+        if(sq != null && sq.getRow()-1 >= 0)//checks if the direction above it is valid
             if(maze[sq.getRow()-1][sq.getColumn()].getType() == 0)
                 neighbors.add(maze[sq.getRow()-1][sq.getColumn()]);
-        if(sq.getColumn()+1 < col && sq.getType() == 0)
+        if(sq.getColumn()+1 < col)
             if(maze[sq.getRow()][sq.getColumn()+1].getType() == 0)
                 neighbors.add(maze[sq.getRow()][sq.getColumn()+1]);
-        if(sq.getRow()+1 < row && sq.getType() == 0)
+        if(sq.getRow()+1 < row)
             if(maze[sq.getRow()+1][sq.getColumn()].getType() == 0)
                 neighbors.add(maze[sq.getRow()+1][sq.getColumn()]);
-        if(sq.getColumn() - 1 >= 0 && sq.getType() == 0)
+        if(sq.getColumn() - 1 >= 0)
             if(maze[sq.getRow()][sq.getColumn()-1].getType() == 0)
                 neighbors.add(maze[sq.getRow()][sq.getColumn()-1]);
         return neighbors;
     }
-
-    public static void main(String[] args) throws FileNotFoundException
+    
+    public Square[][] MazeArray()
     {
-        Maze m = new Maze();
-        m.loadMaze();
-        //System.out.println(m.toString());
-        System.out.println(m.getNeighbors(maze[2][4]));
-        System.out.println(m.getStart().getRow() + ", " + m.getStart().getColumn() + " is a " + m.getStart().getType());
+        return maze;
     }
+
 
 }

@@ -1,16 +1,17 @@
 package MazeApp; 
-
+import java.io.FileNotFoundException;
 public class MazeSolverStack extends MazeSolver
 {
-    static Maze m = new Maze(); 
-    MyStack<Square> stack = new MyStack<>();
-    public MazeSolverStack(Maze maze)
+    static Maze m = new Maze();
+    public static MyStack<Square> stack = new MyStack<>();
+    
+    public MazeSolverStack(Maze maze) throws FileNotFoundException
     {
         super(maze);
     }
     public void makeEmpty()
     {
-        stack.clear();
+        stack = new MyStack<>();
     }
     public boolean isEmpty()
     {
@@ -24,11 +25,15 @@ public class MazeSolverStack extends MazeSolver
     }
     public Square next()
     {
-        return stack.top();
+        return stack.pop();
+    }
+    public Square remove()
+    {
+        return stack.pop();
     }
     
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
         MazeSolverStack test = new MazeSolverStack(m);
         test.solve();
