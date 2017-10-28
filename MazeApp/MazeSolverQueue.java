@@ -13,7 +13,7 @@ public class MazeSolverQueue extends MazeSolver
     }
     public void makeEmpty()
     {
-        queue.clear();
+        queue.clear(); //clears the queue
     }
     public boolean isEmpty()
     {
@@ -23,15 +23,15 @@ public class MazeSolverQueue extends MazeSolver
     }
     public void add(Square sq)
     {
-        queue.enqueue(sq);
+        queue.enqueue(sq);//adds to the worklist
     }
     public Square remove()
     {
-        return queue.dequeue();
+        return queue.dequeue(); //also removes from the worklist, there are two to staisfy the abstract class
     }
     public Square next()
     {
-        return queue.dequeue();
+        return queue.dequeue(); //removes from the worklist
     }
     
 }
