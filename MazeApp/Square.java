@@ -25,30 +25,30 @@ public class Square
 	}
 
 	//getters
-	public int getRow()
+	public int getRow() //gets the row
 	{return row;}
-	public int getColumn()
+	public int getColumn()//gets the column
 	{return col;}
-	public int getType()
+	public int getType()//gets the type
 	{return type;}
-	public void setType(int t)
+	public void setType(int t) //sets the type 
 	{type = t;}
-	public void goBack(Square sq)
+	public void goBack(Square sq) //setter for the previous "Square"
 	{previous = sq;}
-	public Square getPrevious()
+	public Square getPrevious()//getter for the previous "Square"
 	{return previous;}
 
 	public String toString()
 	{
 		switch(type)
 		{
-			case 0: return "_";
-			case 1: return "#";
-			case 2: return "S";
-			case 3: return "E";
-			case 4: return "o";
-			case 5: return ".";
-			case 6: return "x";
+			case 0: return "_"; //if empty space
+			case 1: return "#";// if wall
+			case 2: return "S"; //if start
+			case 3: return "E";// if end
+			case 4: return "o";//if on worklist
+			case 5: return ".";//if explored
+			case 6: return "x";//if on path
 			default: return "_";
 
 		}
