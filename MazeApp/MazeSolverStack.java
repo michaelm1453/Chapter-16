@@ -11,7 +11,7 @@ public class MazeSolverStack extends MazeSolver
     }
     public void makeEmpty()
     {
-        stack = new MyStack<>();
+        stack = new MyStack<>(); //creates a new stack to clear it
     }
     public boolean isEmpty()
     {
@@ -21,22 +21,14 @@ public class MazeSolverStack extends MazeSolver
     }
     public void add(Square sq)
     {
-        stack.push(sq);
+        stack.push(sq);//adds to the worklist
     }
     public Square next()
     {
-        return stack.pop();
+        return stack.pop(); //removes from the worklist
     }
     public Square remove()
     {
-        return stack.pop();
-    }
-    
-    
-    public static void main(String[] args) throws FileNotFoundException
-    {
-        MazeSolverStack test = new MazeSolverStack(m);
-        test.solve();
-        System.out.println(test.getPath());
+        return stack.pop();//removes from the worklist
     }
 }
