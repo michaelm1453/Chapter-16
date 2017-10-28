@@ -87,7 +87,7 @@ public abstract class MazeSolver
 
 
 
-    /*/**
+    /*
      * Returns either a string of the solution path as a list of coordinates [i,j]
      *      from the start to the exit or a message indicating no such path exists.
      *      If the maze isn't solved, a message is returned indicating such.
@@ -99,10 +99,11 @@ public abstract class MazeSolver
         if(!isSolved())
             return "The maze cannot be solved, sorry";
         else{
+            //Goes through the whole maze and adds everything of type 6 to the path
             for(int i = 0; i < maze.getFinish().getRow(); i ++){
                 for(int j = 0; j < maze.getFinish().getColumn(); i++){
                     if(maze.maze[i][j].getType() == 6)
-                        path += "[" + i + "," + j + "]";
+                        path += "[" + i + "," + j + "]"; 
                 }
             }
             return path;
@@ -117,27 +118,27 @@ public abstract class MazeSolver
      */
     public Square step()
     {
-        if(this.isEmpty())
+        if(this.isEmpty())//if the worklist is empty, stop.
             return null;
         Square next = this.next(); //gets the next square
-        if(next == maze.getFinish())
+        if(next == maze.getFinish())//if the next element in the worklist is the endpoint, stop
             return next;
         if(next != null){
             for(Square neighbor : maze.getNeighbors(next))//gets the next squares neighbors
             {
-                if(neighbor.getType() < 4 && neighbor.getType() != 2){ //makes sure it isn't the start or on the worklist
-                    neighbor.goBack(next);
+                //if(neighbor.getType() < 4 && neighbor.getType() != 2){ //makes sure it isn't the start or on the worklist
+                    neighbor.goBack(next);//sets the previous square for neighbor equal to the original 'next' Square variable
                     if(neighbor.getType() == 3)
-                        return next;
+                        return next;//if the next square is the finish, stop
                     else{
-                        neighbor.setType(4);
-                        add(neighbor);
+                        neighbor.setType(4);//say that the neighbor is now on the worklist
+                        add(neighbor);//add the neighbor to the worklist
                     }
                 
                 }
             }
         
-            if(next.getType() >2)
+            if(next.getType() >2)//is this actually necessary?
                 next.setType(5);
         }
         return next;
