@@ -10,15 +10,14 @@ public class MyQueue<T> implements QueueADT<T>
     {
         myQueue = new ArrayList<T>();     
     }
-    public void enqueue(T item){//adds to the end ArrayList automatically adds to the end
+    public void enqueue(T item){//adds to the end; ArrayList automatically adds to the end
         myQueue.add(item);
 
     }
 
     public T dequeue() throws NoSuchElementException
     {
-        
-        if(myQueue.size() != 0)
+        if(myQueue.size() != 0) //removes the first element as long as such an element exists
         {
            return this.myQueue.remove(0);
         }
@@ -29,7 +28,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public T front() throws NoSuchElementException
     {
-        if(myQueue.size() != 0)
+        if(myQueue.size() != 0) //gets the first element, as long as such an element exists
            return this.myQueue.get(0);
         else 
             throw new NoSuchElementException();
