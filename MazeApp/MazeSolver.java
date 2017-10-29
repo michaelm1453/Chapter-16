@@ -15,6 +15,7 @@ public abstract class MazeSolver
     boolean foundExit;
     protected MyStack<Square> stack;
     private Square[][] mazeArray;
+    private String path= "";
 
 
     /**
@@ -95,15 +96,14 @@ public abstract class MazeSolver
      */
     public String getPath()
     {//check to see if the type is equal to 6 (on_path)
-        String path = "";
         if(!isSolved())
             return "The maze cannot be solved, sorry";
         else{
             //Goes through the whole maze and adds everything of type 6 to the path
-            for(int i = 0; i < maze.getFinish().getRow(); i ++){
-                for(int j = 0; j < maze.getFinish().getColumn(); i++){
-                    if(maze.maze[i][j].getType() == 6)
-                        path += "[" + i + "," + j + "]"; 
+            for(int row = 0; row < maze.getRows(); row ++){
+                for(int col = 0; col < maze.getColumns(); col++){
+                    if(mazeArray[row][col].getType() == 6)
+                        path += "[" + row + "," + col + "]"; 
                 }
             }
             return path;
@@ -126,19 +126,17 @@ public abstract class MazeSolver
         if(next != null){
             for(Square neighbor : maze.getNeighbors(next))//gets the next squares neighbors
             {
-                //if(neighbor.getType() < 4 && neighbor.getType() != 2){ //makes sure it isn't the start or on the worklist
-                    neighbor.goBack(next);//sets the previous square for neighbor equal to the original 'next' Square variable
-                    if(neighbor.getType() == 3)
-                        return next;//if the next square is the finish, stop
-                    else{
-                        neighbor.setType(4);//say that the neighbor is now on the worklist
-                        add(neighbor);//add the neighbor to the worklist
-                    }
+                 neighbor.goBack(next);//sets the previous square for neighbor equal to the original 'next' Square variable
+                 if(neighbor.getType() == 3)
+                     return next;//if the next square is the finish, stop
+                 else{
+                     neighbor.setType(4);//say that the neighbor is now on the worklist
+                     add(neighbor);//add the neighbor to the worklist                  }
                 
                 }
             }
         
-            if(next.getType() >2)//is this actually necessary?
+            if(next.getType() == 4)//if it's on the workpath, change it to explored
                 next.setType(5);
         }
         return next;

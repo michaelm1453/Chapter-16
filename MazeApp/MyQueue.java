@@ -17,7 +17,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public T dequeue() throws NoSuchElementException
     {
-        if(myQueue.size() != 0) //removes the first element as long as such an element exists
+        if(!this.isEmpty()) //removes the first element as long as such an element exists
         {
            return this.myQueue.remove(0);
         }
@@ -28,7 +28,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public T front() throws NoSuchElementException
     {
-        if(myQueue.size() != 0) //gets the first element, as long as such an element exists
+        if(!isEmpty()) //gets the first element, as long as such an element exists
            return this.myQueue.get(0);
         else 
             throw new NoSuchElementException();
@@ -42,7 +42,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public boolean isEmpty()
     {
-        if(size() == 0)
+        if(this.size() == 0)
             return true;
         return false;
     }
@@ -52,11 +52,11 @@ public class MyQueue<T> implements QueueADT<T>
         myQueue.clear();
     }
     
-    class Node
-    {
-        private Object data;
-        private Node newNode;
-    }
+    //class Node
+    //{
+      //  private Object data;
+        //private Node newNode;
+    //}
 
 
 

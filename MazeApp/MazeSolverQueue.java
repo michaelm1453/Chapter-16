@@ -1,19 +1,20 @@
 package MazeApp;
-
+import java.io.FileNotFoundException;
 
 public class MazeSolverQueue extends MazeSolver
 {
     static Maze m = new Maze();
-    private MyQueue<Square> queue = new MyQueue();
+    public static MyQueue<Square> queue = new MyQueue();
     
-    public MazeSolverQueue(Maze maze)
+    public MazeSolverQueue(Maze maze) throws FileNotFoundException
     {
         super(maze);
         //maze.loadMaze();
     }
     public void makeEmpty()
     {
-        queue.clear(); //clears the queue
+        //queue.clear(); //clears the queue
+        queue = new MyQueue();
     }
     public boolean isEmpty()
     {

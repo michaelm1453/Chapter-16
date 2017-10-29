@@ -104,6 +104,10 @@ public class Maze
     {
         return maze;
     }
+    public int getRows()
+    {return row;}
+    public int getColumns()
+    {return col;}
 
 
 }
