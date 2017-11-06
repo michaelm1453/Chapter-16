@@ -1,3 +1,5 @@
+Michael Mardyla
+
 Maze Lab
 
 # Purpose
